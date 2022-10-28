@@ -44,6 +44,15 @@ const MovieDetails = ( props) => {
             <Chip label={g.name} sx={chip} />
           </li>
         ))}
+     <li>
+          <Chip label="Production" sx={chip} color="primary" />
+        </li>
+        {movie.genres.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
+
       </Paper>
       <Paper component="ul" sx={root}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
