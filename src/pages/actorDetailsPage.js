@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
-//import Cast from "../components/actorCard";
 import PageTemplate from "../components/templateMoviePage";
 // import useMovie from "../hooks/useMovie";   Redundant
 import { getMovie } from '../api/tmdb-api'
@@ -30,8 +29,6 @@ const MovieDetailsPage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-           {/* <Cast movie ={movie} />  */}
-            
           </PageTemplate>
         </>
       ) : (
