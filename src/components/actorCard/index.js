@@ -1,5 +1,5 @@
 import React, { useContext  } from "react";
-//import  {makeStyles}  from "@mui/styles";
+//import { makeStyles } from "@mui/styles";
 import Card from "@mui/material/Card";
 //import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@mui/material/CardContent";  
@@ -18,12 +18,12 @@ import img from '../../images/film-poster-placeholder.png';
 //     card: { maxWidth: 345 },
 //     media: { height: 500 },
 //     avatar: {
-//       backgroundColor: "rgb(255, 0, 0)",
+//       backgroundColor: "rgb(255, 255, 255)",
 //     },
 //   });
   
   export default function CastCard({ cast}) {
-    // const classes = useStyles();
+     //const classes = useStyles();
     const classes = cast.classes;
   
     return (
