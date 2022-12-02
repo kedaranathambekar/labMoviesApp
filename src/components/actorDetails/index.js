@@ -8,8 +8,9 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-//import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
 
+// A Drawer component is either visible (open) or hidden. We control this with a boolean state variable - drawerOpen.
 
 const root = {
     display: "flex",
@@ -20,60 +21,42 @@ const root = {
     margin: 0,
 };
 const chip = { margin: 0.5 };
-const ActorDetails = ({ actors }) => {  // Don't miss this!
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
+const MovieActorDetails = ({ actors }) => {  // Don't miss this!
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
       <Typography variant="h5" component="h3">
-        Overview
+        <b>Biography of {actors.name}</b>
       </Typography>
 
       <Typography variant="h6" component="p">
-        {actors.overview}
+        {actors.biography}
       </Typography>
 
       <Paper 
         component="ul" 
         sx={root}
       >
-        <li>
-          <Chip label="Genres" sx={chip} color="primary" />
-        </li>
-        {actors.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} sx={chip} />
-          </li>
-        ))}
-
-
-      </Paper>
-      <Paper component="ul" sx={root}>
-        <Chip icon={<AccessTimeIcon />} label={`${actors.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${actors.revenue.toLocaleString()}`}
+         <Chip
+         label={`${actors.popularity}`}
         />
+        
         <Chip
-          icon={<StarRate />}
-          label={`${actors.vote_average} (${actors.vote_count}`}
+         label={`${actors.birthday}`}
         />
-        <Chip label={`Released: ${actors.release_date}`} />
-      </Paper>
-      <Paper 
-        component="ul" 
-        sx={root}
-      >
-        <li>
-          <Chip label="Production Countries" sx={chip} color="primary" />
-        </li>
-        {actors.production_countries.map((c) => (
-          <li key={c.name}>
-            <Chip label={c.name} sx={chip} />
-          </li>
-        ))}
-      </Paper>
+
+         <Chip
+         label={`${actors.place_of_birth}`}
+        />
+
+         <Chip
+         label={`${actors.known_for_department}`}
+        />
+
+        </Paper>
+
       <Fab
         color="secondary"
         variant="extended"
@@ -88,9 +71,9 @@ const ActorDetails = ({ actors }) => {  // Don't miss this!
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        {/* <MovieReviews movie={actors} /> */}
+        {/* <MovieReviews movie={movie} /> */}
       </Drawer>
       </>
   );
 };
-export default ActorDetails ;
+export default MovieActorDetails ;

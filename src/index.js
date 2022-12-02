@@ -13,13 +13,15 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import UpComingPage from './pages/upcomingMovpages';
 import PopularMoviesPage from "./pages/popularMoviesPage";
-import MovieActorsPage from "./pages/MovieActorsPage.js";
+//import MovieActorsPage from "./pages/MovieActorsPage.js";
 import TopRatedMoviesPage from "./pages/topRateMoviePage";
 import SignUpPage from "./pages/signupPage";
-import LoginPage from "./pages/loginPage";  
+import LoginPage from "./components/login";  
 import AuthProvider from "./contexts/authContext";
-import AuthHeader from "./components/authHeader/index";
-
+import AuthHeader from "./components/authHeader";
+import MovieActorsPage from "./pages/actorPage";
+import MovieActorDetailsPage from "./pages/actorDetailsPage";
+import PrivateRoute from "./components/privateRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,25 +38,27 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-    {/* <AuthProvider> */}
+    <AuthProvider> 
         <SiteHeader />
-        {/* <AuthHeader />      New Header  */}
+         <AuthHeader />     
           <MoviesContextProvider>
           <Routes>
-          <Route path="/signup" component={SignUpPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" element={<SignUpPage/>} />
+          <Route path="/login" element={<LoginPage/>} />
           <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-      <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+        <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
         <Route exact path="/movies/upcoming" element={<UpComingPage />} />
         <Route exact path="/movies/popular" element={<PopularMoviesPage />} />
         <Route exact path= "/movies/toprated" element={<TopRatedMoviesPage/>} />
         <Route path="/movies/:id" element={<MoviePage />} />
+        <Route path="/actors/" element={<MovieActorsPage />} />
+        <Route path="/actors/:id" element={<MovieActorDetailsPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={ <Navigate to="/" /> } />
       </Routes>
       </MoviesContextProvider>
-      {/* </AuthProvider> */}
+       </AuthProvider> 
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 
 const HomePage = (props) => {
   const [page, setPage] = useState(1);
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const {  data, error, isLoading, isError }  = useQuery(['discover',page], getMovies)
 
   if (isLoading) {
     return <Spinner />

@@ -1,44 +1,52 @@
-// import React, { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
+import { login, signup } from "../components/movie-api";
 
+export const AuthContext = createContext(null);
 
-// export const AuthContext=createContext(null);
-// export const userNameList=["userName"];
+const AuthContextProvider = (props) => {
+  const existingToken = localStorage.getItem("token");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authToken, setAuthToken] = useState(existingToken);
+  const [userName, setUserName] = useState("");
 
-// const AuthContextProvider = (props) => {
-//     const [userName, setUserName] = useState("");
-//     const [isAuthenticated, setIsAuthenticated] = useState(false);
+  //Function to put JWT token in local storage.
+  const setToken = (data) => {
+    localStorage.setItem("token", data);
+    setAuthToken(data);
+  }
 
-//     const authenticate = (userName) =>
-//     {
-//         if(userNameList.includes(userName))
-//         {
-//             setUserName(userName);
-//             setIsAuthenticated(true);
-//         }
-//     };
+  const authenticate = async (username, password) => {
+    const result = await login(username, password);
+    if (result.token) {
+      setToken(result.token)
+      setIsAuthenticated(true);
+      setUserName(username);
+    }
+  };
 
-//     const register = async (userName) =>
-//     {
-//         userNameList.push(userName)
-//     };
+  const register = async (username, password) => {
+    const result = await signup(username, password);
+    console.log(result.code);
+    return (result.code == 201) ? true : false;
+  };
 
-//     const signout = () =>
-//     {
-//         setTimeout(() => setIsAuthenticated(false), 500);
-//     }
+  const signout = () => {
+    setTimeout(() => setIsAuthenticated(false), 100);
+  }
 
-//     return (
-//         <AuthContext.Provider
-//         value={{
-//             userName,
-//             register,
-//             authenticate,
-//             isAuthenticated,
-//             signout,
-//         }}>
-//             {props.children}
-//         </AuthContext.Provider>
-//     );
-// };
+  return (
+    <AuthContext.Provider
+      value={{
+        isAuthenticated,
+        authenticate,
+        register,
+        signout,
+        userName
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
 
-// export default AuthContextProvider;
+export default AuthContextProvider;

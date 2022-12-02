@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
-//import Cast from "../components/actorCard";
+import ActorDetails from "../components/actorDetails";
 import PageTemplate from "../components/templateMoviePage";
+//import PageTemplate from "../components/templateMovieActorsPage"
 // import useMovie from "../hooks/useMovie";   Redundant
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
+import Cast from "../pages/actorPage";
 import Spinner from '../components/spinner';
 
 
@@ -30,8 +32,9 @@ const MovieDetailsPage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            {/* <Cast movie ={movie} />   */}
+            {/* <Cast movie ={movie} /> */}
           </PageTemplate>
+          
         </>
       ) : (
         <p>Waiting for movie details</p>

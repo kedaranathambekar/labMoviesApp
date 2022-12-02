@@ -1,28 +1,32 @@
-import React, {useContext} from "react";
-import { getActorsImages } from "../api/tmdb-api";
-import PageTemplate from '../components/templateMovieListPage';
+import React from "react";
+import Cast from "../components/actorDetails";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import PlaylistAddIcon from '../components/cardIcons/addToPlaylist';
+import { getCast } from "../api/tmdb-api";
+import Grid from "@material-ui/core/Grid";
 
-const MovieActorsPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('upcoming', getActorsImages)
+
+
+const CastPage = ({movie}) => {
+//   const { id } = props.match.params;
+  const {  data, error, isLoading, isError }  = useQuery(["cast", { id: movie.id}] , getCast);
 
   if (isLoading) {
-    return <Spinner />
-  }
+        return <Spinner />
+      }
+    
+      if (isError) {
+        return <h1>{error.message}</h1>
+      }  
+      const cast = data.cast;
 
-  if (isError) {
-    return <h1>{error.message}</h1>
-  }  
+      let castList = cast.map((c) => (
+        <Grid key={c.id}>
+          <Cast key={c.id} cast={c}/>
+        </Grid>
+      ));
+    
+      return castList;
+    };
 
-  const actors = data.results;
-    return (
-      <PageTemplate
-        title="Actors"
-        actors={actors}
-      
-        />
-    );
-};
-export default MovieActorsPage;
+export default CastPage;

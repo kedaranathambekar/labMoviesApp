@@ -4,8 +4,12 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import PlaylistAddIcon from '../components/cardIcons/addToPlaylist';
+import { Pagination, PaginationItem } from "@mui/material";
+import { useState } from "react";
+import Typography from "@mui/material/Typography";
 
 const UpcomingMoviesPage = (props) => {
+  const [page, setPage] = useState(1);
   const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcomingMovies)
 
   if (isLoading) {
@@ -18,13 +22,13 @@ const UpcomingMoviesPage = (props) => {
 
   const movies = data.results;
     return (
-      <PageTemplate
+      <><PageTemplate
         title="Upcoming Movies"
         movies={movies}
         action={(movie) => {
-          return <PlaylistAddIcon movie={movie} />
-        }}
-        />
+          return <PlaylistAddIcon movie={movie} />;
+        } } /><Typography>Page: {page}</Typography><Pagination count={10} page={page} onChange={(event, newPageNum) => setPage(newPageNum)} /></>
+       
     );
 };
 export default UpcomingMoviesPage;
