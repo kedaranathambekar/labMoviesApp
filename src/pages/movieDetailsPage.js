@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
-import Cast from "../components/actorList";
+import Cast from "../pages/actorPage";
 import PageTemplate from "../components/templateMoviePage";
 import PageTemplates from "../components/templateMovieActorsPage"
 // import useMovie from "../hooks/useMovie";   Redundant
@@ -13,10 +13,6 @@ import Spinner from '../components/spinner';
 
 const MovieDetailsPage = (props) => {
   const { id } = useParams();
-  // const { data: cast, errors, isLoadings, eerror } = useQuery(
-  //   ["cast", { id: id }],
-  //   getCast
-  // );
   const { data: movie, error, isLoading, isError } = useQuery(
     ["movie", { id: id }],
     getMovie
@@ -40,7 +36,7 @@ const MovieDetailsPage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            {/* <Cast movie ={cast} /> */}
+            <Cast movie ={movie} />
           </PageTemplate>
           
         </>
