@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
-import ActorDetails from "../components/actorDetails";
+import Cast from "../components/actorList";
 import PageTemplate from "../components/templateMoviePage";
-//import PageTemplate from "../components/templateMovieActorsPage"
+import PageTemplates from "../components/templateMovieActorsPage"
 // import useMovie from "../hooks/useMovie";   Redundant
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
-import Cast from "../pages/actorPage";
+import {getCast}  from "../api/tmdb-api"
 import Spinner from '../components/spinner';
 
 
 const MovieDetailsPage = (props) => {
   const { id } = useParams();
+  // const { data: cast, errors, isLoadings, eerror } = useQuery(
+  //   ["cast", { id: id }],
+  //   getCast
+  // );
   const { data: movie, error, isLoading, isError } = useQuery(
     ["movie", { id: id }],
     getMovie
   );
 
-  if (isLoading) {
+  // const { data: cast, errors, isLoadings, eerror } = useQuery(
+  //   ["cast", { id: id }],
+  //   getCast
+  // );
+  if (isLoading ) {
     return <Spinner />;
   }
 
@@ -32,7 +40,7 @@ const MovieDetailsPage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            {/* <Cast movie ={movie} /> */}
+            {/* <Cast movie ={cast} /> */}
           </PageTemplate>
           
         </>
