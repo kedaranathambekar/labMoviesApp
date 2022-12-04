@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
-import Cast from "../pages/actorPage";
+import Cast from "../pages/castPage";
 import PageTemplate from "../components/templateMoviePage";
 import PageTemplates from "../components/templateMovieActorsPage"
 // import useMovie from "../hooks/useMovie";   Redundant

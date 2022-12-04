@@ -28,6 +28,9 @@ import ProtectedRotue from "./components/authGroup/protectedRotue";
 import MovieActorsPage from "./pages/actorPage";
 import MovieActorDetailsPage from "./pages/actorDetailsPage";
 import PrivateRoute from "./privateRoute";
+import ShowPage from "./pages/tvSeriesPage";
+import ShowPagee from "./pages/tvSeriesDetailPage";
+import ShowsContextProvider from "./contexts/tvContext";
 
 
 const queryClient = new QueryClient({
@@ -50,6 +53,7 @@ const App = () => {
         <SiteHeader />
         <AuthHeader />   
           <MoviesContextProvider>
+            <ShowsContextProvider>
             {" "}
           <Routes>
           {/* <Route path="/signup" element={<SignUpPage/>} /> */}
@@ -63,9 +67,12 @@ const App = () => {
           <Route path="/movies/:id" element={<MoviePage />} />
           <Route path="/actors/" element={<MovieActorsPage />} />
           <Route path="/actors/:id" element={<MovieActorDetailsPage />} />
+          <Route path="/shows" element={ < ShowPage/> } />
+          <Route path ="/shows/:id" element={<ShowPagee/>}/>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
+          </ShowsContextProvider>
           </MoviesContextProvider>
        </AuthProvider> 
     </BrowserRouter>

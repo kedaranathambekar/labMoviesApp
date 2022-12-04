@@ -22,13 +22,16 @@ const UpcomingMoviesPage = (props) => {
 
   const movies = data.results;
     return (
-      <><PageTemplate
+      <PageTemplate
         title="Upcoming Movies"
         movies={movies}
         action={(movie) => {
-          return <PlaylistAddIcon movie={movie} />;
-        } } /><Typography>Page: {page}</Typography><Pagination count={10} page={page} onChange={(event, newPageNum) => setPage(newPageNum)} /></>
+          return (
+          <PlaylistAddIcon movie={movie} />
+          );
+        } } 
+        />
        
-    );
+    );  
 };
 export default UpcomingMoviesPage;
