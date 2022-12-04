@@ -3,14 +3,14 @@ import ShowHeader from "../headerShow";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { getShowImages } from "../../api/tmdb-api";
+import { getTvImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
 const TemplateShowPage = ({ show, children }) => {
   const { data , error, isLoading, isError } = useQuery(
     ["images", { id: show.id }],
-    getShowImages
+    getTvImages
   );
 
   if (isLoading) {

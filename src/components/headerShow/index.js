@@ -8,7 +8,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
 import { useNavigate } from "react-router-dom";
 
-const ShowHeader = (props) => {
+const TvHeader = (props) => {
   const show = props.show;
   const navigate = useNavigate();
 
@@ -43,4 +43,4 @@ const ShowHeader = (props) => {
   );
 };
 
-export default ShowHeader;
+export default TvHeader;

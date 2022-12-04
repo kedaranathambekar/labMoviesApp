@@ -75,7 +75,7 @@ export default function ShowCard({ show, action }) {  const { favourites, addToF
       </CardContent>
       <CardActions disableSpacing>
     {action(show)}
-    <Link to={`/shows/${show.id}`}>
+    <Link to={`/tv/${show.id}`}>
       <Button variant="outlined" size="medium" color="primary">
         More Info ...
       </Button>

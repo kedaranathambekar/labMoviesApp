@@ -233,7 +233,7 @@ export const getTV = (args) => {
                   });
               };
 
-              export const getShowImages = ({ queryKey }) => {
+              export const getTvImages = ({ queryKey }) => {
                 const [, idPart] = queryKey;
                 const { id } = idPart;
                 return fetch(
@@ -249,7 +249,7 @@ export const getTV = (args) => {
                     throw error
                  });
                 };
-                export const getShows = () => {
+                export const getTvs = () => {
                   return fetch(
                     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_video=false&page=1`
                     ).then((response) => {
@@ -263,7 +263,7 @@ export const getTV = (args) => {
                     });
                   };
 
-                  export const getShow = (args) => {
+                  export const getTv = (args) => {
                     // console.log(args)
                     const [, idPart] = args.queryKey;
                     const { id } = idPart;

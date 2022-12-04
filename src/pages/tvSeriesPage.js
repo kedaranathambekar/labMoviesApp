@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import PageTemplate from "../components/templateTvListPage";
-import { getShows } from "../api/tmdb-api";
+import { getTvs } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 //import AddToFavouritesIconShow from "../components/cardIcons/addToFavouritesShow";
 
 
-const ShowPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('discover-shows', getShows)
+const TvPage = (props) => {
+  const {  data, error, isLoading, isError }  = useQuery('shows', getTvs)
 
   if (isLoading) {
     return <Spinner />
@@ -35,4 +35,4 @@ const ShowPage = (props) => {
     );
   };
 
-  export default ShowPage;
+  export default TvPage;
