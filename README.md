@@ -57,12 +57,30 @@ e.g.
 ![](./images/stories.png)
 
 ### UI Design.
-[ show the tv shows ).
+[ show the tv shows ].
+![ ](./images/tvshows.png)
 
 [ While press favourtie icon in the tv series page it will add in the tv favourite page ).
 
 ![ ](./images/favouritetv.png)
 
+[ Added authentication for the upcomping movie to view the view that page have to log in first ].
+
+![ ](./images/authentication.png)
+![ ](./images/upcomin_movie_protected.png)
+
+[Able  to view the actors page]
+![ ](./images/actors.png)
+[ show the actor details like about them and birth date etc. ].
+
+![ ](./images/actors_details.png)
+
+[ Created two more pages there popular and toprated movies]
+![ ](./images/toprated.png)
+![ ](./images/popularmovie.png)
+[ have a pagination which means able to view different movie while pressing the pagination button and added them in the home page]
+
+![ ](./images/pagination.png)
 >Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
 ![ ](./images/review.png)
