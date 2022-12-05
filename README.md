@@ -57,6 +57,7 @@ e.g.
 ![](./images/stories.png)
 
 ### UI Design.
+[ show the tv shows ).
 
 [ While press favourtie icon in the tv series page it will add in the tv favourite page ).
 
