@@ -58,7 +58,7 @@ e.g.
 
 ### UI Design.
 
-[ Insert scnshots of the __new app pages__ you developed (including modified existing pages), Have an appropriate caption for each one (see example below).
+[ While press favourtie icon in the tv series page it will add in the tv favourite page ).
 
 ![ ](./images/favouritetv.png)
 
