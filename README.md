@@ -11,9 +11,12 @@ Name: Kedaranath
 e.g.
 
 + List of Trending movies.
-+ (Modified) Movie Details page - added chips for .....
-+ List of Actors.
-+ etc
++ (Modified) Movie Details page - added chips for genres.
++ TopRated Movie Page. 
++ Tv series Page.
++ Favourite Tv Series Page.
++ List of Actors added chip for actors know departmnet.
++ Popular Movies Page.
 
 ### New Features.
 
@@ -21,11 +24,10 @@ e.g.
  
  e.g.
 
-+ Authentication (using Firebase)
-+ Create a fantasy movie (Basic)
-+ Sort movie list by release date (e.g. the Discover Movies page)
-+ etc
-
++ Authentication
++ Pagination
++ Add Cast in the movie details page
++ Favourite Tv series
 ## Setup requirements.
 
 [ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
@@ -38,8 +40,11 @@ e.g.
 
 + /movies/{movie_id}/reviews - The user reviews or a movie.
 + /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/popular - A list of popular actors.
-+ /tv/{tv_id}/videos - The videos for a TV show. 
++ /person/popular - A list of  actors.
++ person/${id}-actor Details
++ /tv/{tv_id}/videos - The TV show. 
++ /movie/top_rated-Top rated movie.
++ person/${id}-popular movie
 
 ## App Design.
 
@@ -71,8 +76,12 @@ e.g.
 
 + /actors - displays a list of popular actors.
 + /actors/:id - shows details about a particular actor.
-+ /actors/:id/movies (protected) - an actor's movie credits.
-+ etc.
++ /movie/upcoming(protected)-have to login to the page to see 
++ /tv-display the tv shows are going
++ /tv/:id -give the details of the tv shows 
++ /movie/toprated-Toprated movies page can be able to view
++ /movie/popular-can view the popular movies
++ /tv/favourites-able to see the favourite tv shows
 
 [If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
 
