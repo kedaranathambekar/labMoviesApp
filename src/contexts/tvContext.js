@@ -5,7 +5,7 @@ export const ShowsContext = React.createContext(null);
 const ShowsContextProvider = (props) => {
   const [favourites, setFavourites] = useState( [] )
 
-  const addToFavourites = (show) => {
+ const addToActorFavourites = (show) => {
     let newFavourites = [...favourites];
     if (!favourites.includes(show.id)) {
       newFavourites.push(show.id);
