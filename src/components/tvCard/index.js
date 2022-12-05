@@ -17,7 +17,7 @@ import img from '../../images/film-poster-placeholder.png'
 import { ShowsContext } from "../../contexts/tvContext";
 
 
-export default function ShowCard({ show, action }) {  const { favourites, addToFavourites } = useContext(ShowsContext);
+export default function ShowCard({ show, action }) {  const { favourites, addToActorFavourites } = useContext(ShowsContext);
 
 
  
@@ -29,7 +29,7 @@ export default function ShowCard({ show, action }) {  const { favourites, addToF
  
    const handleAddToFavourite = (e) => {
       e.preventDefault();
-      addToFavourites(show);
+      addToActorFavourites(show);
     };
  
 
@@ -74,6 +74,9 @@ export default function ShowCard({ show, action }) {  const { favourites, addToF
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
+      <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
+        <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
     {action(show)}
     <Link to={`/tv/${show.id}`}>
       <Button variant="outlined" size="medium" color="primary">
